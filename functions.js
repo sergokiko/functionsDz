@@ -505,5 +505,6 @@ function cloneObj(obj){
     return newObj
 }
 
+
 let newObjct = cloneObj(Z)
 console.log(newObjct);
