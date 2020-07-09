@@ -42,15 +42,33 @@ findMax(12, 544, 5)
 // - створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше
 
 
-function strannaFunctia() {
 
+function minMaxOfArr() {
+    let max = 0;//abo arguments[0]
+    for (let elem of arguments) {
+        if(max < elem){
+            max = elem;
+        }
+    }
+    let min = Infinity; //abo arguments[0]
+    for (let elem of arguments) {
+        if(min > elem){
+            min = elem;
+        }
+    }
+    console.log(max);
+    return min
+}
+
+//варіант 2
+function someFunction() {
     console.log(returningMaxFomArr(arguments));
     return returningMinFomArr(arguments)
 }
 
 
 
-console.log(strannaFunctia(3, 32, 3, 4, 54, 45, 46));
+
 
 
 
@@ -71,7 +89,6 @@ function returningMaxFomArr(arr) {
     }
     return max
 }
-
 console.log(returningMaxFomArr([1, 2, 5, 3, 4, 23, 55, 775, 67]))
 
 
@@ -192,11 +209,13 @@ let name;
 
 
 
+
 function zachemNamToVobshe(arr) {
     let newArr = []
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] === 0) {
-            newArr.push(arr.splice(i, 1)[0])
+            const [elem] = arr.splice(i, 1);
+            newArr.push(elem)
         }
     }
     return arr.concat(newArr)
@@ -469,11 +488,12 @@ function cloneObj(obj) {
 
     let newObj = {}
     for (let key in obj) {
-        if (typeof obj[key] === 'object') {
-            newObj[key] = cloneObj(obj[key]);
-            continue
+        if (obj.hasOwnProperty(key)) {
+            if (typeof obj[key] === 'object') {
+                newObj[key] = cloneObj(obj[key]);
+            }
+            newObj[key] = obj[key]
         }
-        newObj[key] = obj[key]
     }
 
 
@@ -484,3 +504,8 @@ function cloneObj(obj) {
 let newObjct = cloneObj(Z)
 console.log(newObjct);
 
+
+
+
+
+console.log(minMaxOfArr(23, 4, 3, 23, 45, 64, 233));
