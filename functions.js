@@ -125,8 +125,8 @@ console.log(arrSum([2, 3, 4, 5, 6]));
 // - створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.
 
 function average(arr) {
-    let sum = arr.reduce((a, b) => (a + b))
-    return sum / arr.length;
+
+    return arr.reduce((a, b) => (a + b)) / arr.length;
 }
 
 console.log(average([23, 23, 12, 43]));
@@ -305,7 +305,7 @@ function pushInElem2(arr, id) {
 
         elem.appendChild(divElement)
     }
-    document.body.appendChild(elem)
+
 }
 
 pushInElem2(arrOfCars, 'cars2')
@@ -336,12 +336,8 @@ function golovaVjeBolut(arr1, arr2) {
 
             if (user.id === city.user_id) {
                 user.address = city
-
             }
-
         }
-
-
     }
 
 
@@ -409,8 +405,6 @@ function nuCeVjeZanadto(arr, id) {
         divka.appendChild(h2)
         divka.appendChild(p)
         elem.appendChild(divka)
-
-
     }
 }
 
@@ -428,12 +422,7 @@ function checkN(n) {
     let i = 1;
     while (i < n) {
         i = i * 2;
-        if (i === n) {
-            flag = true
-        } else {
-            flag = false
-        }
-
+        flag = i === n;
     }
     return flag?'Yes':'No'
 }
@@ -460,10 +449,9 @@ function newArrr(arr) {
         }, [])
     )
 
-
 }
 
-
+//або коротше
 // function newArrr(arr1) {
 //     return arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(newArrr(val)) : acc.concat(val), []);
 // }
@@ -508,4 +496,3 @@ console.log(newObjct);
 
 
 
-console.log(minMaxOfArr(23, 4, 3, 23, 45, 64, 233));
